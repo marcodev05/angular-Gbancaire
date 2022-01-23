@@ -1,0 +1,36 @@
+
+<div class="container mt-4">
+<div class="mat-elevation-z8">
+  <table mat-table [dataSource]="accounts" >
+
+    <!--- Note that these columns can be defined in any order.
+          The actual rendered columns are set as a property on the row definition" -->
+  
+    <!-- account number Column -->
+    <ng-container matColumnDef="accountNb">
+      <th mat-header-cell *matHeaderCellDef> No.Compte </th>
+      <td mat-cell *matCellDef="let element"> CPT{{element.accountNb}} </td>
+    </ng-container>
+  
+    <!-- Name Column -->
+    <ng-container matColumnDef="fName">
+      <th mat-header-cell *matHeaderCellDef> Name </th>
+      <td mat-cell *matCellDef="let element"> {{element.fName}} {{element.lName}}</td>
+    </ng-container>
+ 
+    <!-- phone Column -->
+    <ng-container matColumnDef="phone">
+        <th mat-header-cell *matHeaderCellDef> Phone </th>
+        <td mat-cell *matCellDef="let element"> {{element.phone}}</td>
+      </ng-container>
+    
+     
+  
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+  <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+  </div>
+
+</div>
+  

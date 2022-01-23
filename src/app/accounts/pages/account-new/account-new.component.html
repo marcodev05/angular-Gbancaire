@@ -1,0 +1,50 @@
+<div class="title">
+    <h2 style="color: red; text-align: center;"> Ouverture de comptes</h2>
+</div>
+<hr class="bg-white">
+
+<div class="container">
+
+    <form [formGroup]="accountForm" (ngSubmit)="onSubmitForm()">
+      
+        <div class="form-row">
+            <div class="form-group required  col-md-8">
+                <label for="fName">Nom : </label>
+                <input type="text" id="fName" class=" form-control form-control-sm required" formControlName="fName">
+                <label class="text-danger" *ngIf=" accountForm.get('fName')?.touched && accountForm.get('fName')?.errors?.required">ce champs est obligatoire</label>
+            </div>
+
+            <div class="form-group col-md-4">
+                <label for="lName">Prénom : </label>
+                <input type="text" id="lName" class="form-control form-control-sm" formControlName="lName">
+            </div>
+        </div>
+
+
+        <div class="form-group required">
+            <label for="cin">Cin : </label>
+            <input type="text" id="cin" class="form-control form-control-sm" formControlName="cin">
+            <label class="text-danger" *ngIf=" accountForm.get('cin')?.touched && accountForm.get('cin')?.errors?.required">ce champs est obligatoire</label>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group required col-md-8">
+                <label for="address1">Adresse : </label>
+                <input type="text" id="address1" class="form-control form-control-sm" formControlName="address1">
+                <label class="text-danger" *ngIf=" accountForm.get('address1')?.touched && accountForm.get('address1')?.errors?.required">ce champs est obligatoire</label>
+            </div>
+            <div class="form-group required col-md-4">
+                <label for="address2">Ville : </label>
+                <input type="text" id="address2" class="form-control form-control-sm" formControlName="address2">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="phone">Phone : </label>
+            <input type="tel" id="phone" class="form-control form-control-sm" formControlName="phone">
+        </div>
+
+        <button mat-raised-button color="basic" [disabled]="accountForm.invalid" type="submit">Terminer</button>
+    </form>
+
+</div>
